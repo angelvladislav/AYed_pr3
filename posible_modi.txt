@@ -1,0 +1,9 @@
+double SparsePolynomial::sumTechCoefs() const {
+    double sum = 0.0;
+    for (int i = 0; i < get_nz(); ++i) {
+        sum += at(i).get_val(); // Suma los coeficientes tecnológicos de los monomios
+    }
+    return sum;
+}
+
+double totalSum = sp1.sumTechCoefs() + sp2.sumTechCoefs() + sp3.sumTechCoefs();

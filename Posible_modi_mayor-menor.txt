@@ -1,0 +1,32 @@
+void SparsePolynomial::printMaxMinMonomials() const {
+    // Encontrar el monomio de mayor grado
+    int maxDegree = 0;
+    double maxCoef = 0.0;
+    for (int i = 0; i < get_nz(); ++i) {
+        if (at(i).get_inx() > maxDegree) {
+            maxDegree = at(i).get_inx();
+            maxCoef = at(i).get_val();
+        }
+    }
+
+    // Encontrar el monomio de menor grado
+    int minDegree = std::numeric_limits<int>::max();
+    double minCoef = 0.0;
+    for (int i = 0; i < get_nz(); ++i) {
+        if (at(i).get_inx() < minDegree) {
+            minDegree = at(i).get_inx();
+            minCoef = at(i).get_val();
+        }
+    }
+
+    // Imprimir por pantalla el monomio de mayor grado
+    std::cout << "Mayor monomio: Grado = " << maxDegree << ", Coeficiente = " << maxCoef << std::endl;
+
+    // Imprimir por pantalla el monomio de menor grado
+    std::cout << "Menor monomio: Grado = " << minDegree << ", Coeficiente = " << minCoef << std::endl;
+}
+
+
+sp1.printMaxMinMonomials();
+sp2.printMaxMinMonomials();
+sp3.printMaxMinMonomials();
